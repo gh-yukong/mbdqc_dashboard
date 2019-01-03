@@ -10,6 +10,7 @@ import numpy as np
 ###### Global variables ######
 ##############################
 BASE_SEARCH_ORDER = [
+    "/ghds/groups/lunar/flowcells/processed/bip3.8_release/",
     "/ghds/groups/lunar/flowcells/processed/lunar1v1.0_rc6/",
     "/ghds/groups/lunar/flowcells/processed/lunar1v1.0_rc5/",
     "/ghds/groups/lunar/flowcells/processed/lunar1v1.0_rc4/",
@@ -23,7 +24,7 @@ BASE_SEARCH_ORDER = [
     "/ghds/groups/lunar/flowcells/processed/bip38/",
     "/mnt/flowcentral/"]
 
-OUTPUT_PATH = "/ghds/shared/flowcell_qc/default_output/"
+OUTPUT_PATH = "/ghds/shared/flowcell_qc/mbd_output/"
 
 ######################################
 ###### FILE PROCESSING FUNCTION ######
@@ -543,7 +544,7 @@ if __name__ == "__main__":
     sys.stdout.write("Calculating major MBD QC metrics in flowcell {}\n".format(args.fc))
 
     mbd_qc_report = get_mbd_qc_report(fcs=args.fc)
-    mbd_qc_report.to_csv(os.path.join(output_prefix, "mbdqc_default_report.hdr.tsv"),
+    mbd_qc_report.to_csv(os.path.join(output_prefix, "mbd_default_report.hdr.tsv"),
                          sep="\t", index=False)
 
     sys.stdout.write("Major MBD QC metrics Done \n")
